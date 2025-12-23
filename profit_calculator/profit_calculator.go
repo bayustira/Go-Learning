@@ -20,5 +20,5 @@ func main() {
 
 	fmt.Println("EBT:", earningBeforeTax)
 	fmt.Println("Profit:", earningAfterTax)
-	println("Ratio:", ratio)
+	fmt.Println("Ratio:", ratio)
 }
