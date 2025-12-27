@@ -9,7 +9,7 @@ func main() {
 
 	earningBeforeTax, earningAfterTax, ratio := calculateProfit(revenue, expenses, taxRate)
 
-	fmt.Printf("EBT: %.2f\n", earningBeforeTax)
+	fmt.Printf("EBT: %.2f\n", earningBeforeTax)  
 	fmt.Printf("Profit: %.2f\n", earningAfterTax)
 	fmt.Printf("Ratio: %.2f\n", ratio)
 }
