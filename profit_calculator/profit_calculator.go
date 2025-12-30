@@ -2,6 +2,12 @@ package main
 
 import "fmt"
 
+//Goals
+// 1. Validate user input
+//   => Show error message & exit if invalid input
+// 	 - No Negative numbers
+// 	 - No zero values
+// 2. Store calculated results in a file
 func main() {
 	revenue := getUserInput("Revenue:")
 	expenses := getUserInput("Expenses:")
