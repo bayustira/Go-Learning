@@ -9,28 +9,31 @@ import (
 
 const accountBalanceFile = "balance.txt"
 
-func readBalanceFromFile() (float64, error) {
+func getFloatFromFile(fileName string) (float64, error) {
 	// Placeholder function to simulate reading balance from a file
-	data, err := os.ReadFile(accountBalanceFile)
+	data, err := os.ReadFile(fileName)
+
 	if err != nil {
-		return 1000, errors.New("Failed to find balance file")
+		return 1000, errors.New("Failed to find file")
 	}
-	balanceText := string(data)
-	balance, err := strconv.ParseFloat(balanceText, 64)
+	
+	valueText := string(data)
+	value, err := strconv.ParseFloat(valueText, 64)
+
 	if err != nil {
-		return 1000, errors.New("Failerd to parse stored balance value")
+		return 1000, errors.New("Failed to parse stored e")
 	}
-	return balance, nil
+	return value, nil
 }
 
-func writeToBalanceFile(balance float64) {
+func writeFloatToFile(value float64, fileName string) {
 	// Placeholder function to simulate writing balance to a file
-	balanceText := fmt.Sprint(balance)
-	os.WriteFile(accountBalanceFile, []byte(balanceText), 0644)
+	valueText := fmt.Sprint(value)
+	os.WriteFile(fileName, []byte(valueText), 0644)
 }
 
 func main() {
-	var accountBalance, err = readBalanceFromFile()
+	var accountBalance, err = getFloatFromFile(accountBalanceFile)
 	if err != nil {
 		fmt.Println("Error reading balance:", err)
 		fmt.Println("-----------------------------------------")
@@ -65,7 +68,7 @@ func main() {
 			}
 			accountBalance += depositAmount
 			fmt.Println("Deposit successful. New balance is:", accountBalance)
-			writeToBalanceFile(accountBalance)
+			writeFloatToFile(accountBalance, accountBalanceFile)
 		case 3:
 			var withdrawAmount float64
 			fmt.Print("Enter amount to withdraw: ")
@@ -80,7 +83,7 @@ func main() {
 			} 
 			accountBalance -= withdrawAmount
 			fmt.Println("Withdrawal successful. New balance is:", accountBalance)
-			writeToBalanceFile(accountBalance)
+			writeFloatToFile(accountBalance, accountBalanceFile)
 		default:
 			fmt.Println("Thank you for using the Bank Application. Goodbye!")
 			fmt.Println("Exiting the application.")
