@@ -7,7 +7,7 @@ import (
 	"strconv"
 )
 
-func getFloatFromFile(fileName string) (float64, error) {
+func GetFloatFromFile(fileName string) (float64, error) {
 	// Placeholder function to simulate reading balance from a file
 	data, err := os.ReadFile(fileName)
 
@@ -24,7 +24,7 @@ func getFloatFromFile(fileName string) (float64, error) {
 	return value, nil
 }
 
-func writeFloatToFile(value float64, fileName string) {
+func WriteFloatToFile(value float64, fileName string) {
 	// Placeholder function to simulate writing balance to a file
 	valueText := fmt.Sprint(value)
 	os.WriteFile(fileName, []byte(valueText), 0644)
