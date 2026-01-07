@@ -19,12 +19,8 @@ func main() {
 	fmt.Println("Welcome to the Bank Application")
 	
 	for {
-		fmt.Println("What would you like to do today?")
-		fmt.Println("1. Check balance")
-		fmt.Println("2. Deposit funds")
-		fmt.Println("3. Withdraw funds")
-		fmt.Println("4. Exit")
-
+		presentMenu()
+		
 		var choice int
 		fmt.Print("Enter your choice (1-4): ")
 		fmt.Scan(&choice)
