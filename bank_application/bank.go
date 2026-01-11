@@ -18,17 +18,24 @@ func main() {
 	}
 
 	fmt.Println("Welcome to the Bank Application")
+<<<<<<< HEAD
 	fmt.Println("Reach us 24/7 at", randomdata.PhoneNumber())
 	
 	for {
 		presentMenu()
 		
+=======
+
+	for {
+		showOptions()
+
+>>>>>>> c8859f2ce6b139dfced0477613a3b78601d2edde
 		var choice int
 		fmt.Print("Enter your choice (1-4): ")
 		fmt.Scan(&choice)
 
 		fmt.Println("You selected option:", choice)
-		
+
 		switch choice {
 		case 1:
 			fmt.Println("Your current account balance is:", accountBalance)
@@ -54,7 +61,7 @@ func main() {
 			if withdrawAmount > accountBalance {
 				fmt.Println("Insufficient funds.")
 				continue
-			} 
+			}
 			accountBalance -= withdrawAmount
 			fmt.Println("Withdrawal successful. New balance is:", accountBalance)
 			fileops.WriteFloatToFile(accountBalance, accountBalanceFile)
