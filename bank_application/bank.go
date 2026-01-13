@@ -18,18 +18,11 @@ func main() {
 	}
 
 	fmt.Println("Welcome to the Bank Application")
-<<<<<<< HEAD
 	fmt.Println("Reach us 24/7 at", randomdata.PhoneNumber())
-	
+
 	for {
 		presentMenu()
-		
-=======
 
-	for {
-		showOptions()
-
->>>>>>> c8859f2ce6b139dfced0477613a3b78601d2edde
 		var choice int
 		fmt.Print("Enter your choice (1-4): ")
 		fmt.Scan(&choice)
