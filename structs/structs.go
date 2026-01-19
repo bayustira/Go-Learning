@@ -1,19 +1,41 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
+
+type user struct {
+	firstName string
+	lastName  string
+	birthDate string
+	createdAt time.Time
+}
 
 func main() {
-	firstName := getUserdata("Please enter your first name: ")
-	lastName := getUserdata("Please enter your last name: ")
-	birthDate := getUserdata("Please enter your birth date (MM/DD/YYYY): ")
+	userFirstName := getUserdata("Please enter your first name: ")
+	userLastName := getUserdata("Please enter your last name: ")
+	userBirthDate := getUserdata("Please enter your birth date (MM/DD/YYYY): ")
+
+	var appUser user
+	appUser = user{
+		firstName: userFirstName,
+		lastName:  userLastName,
+		birthDate: userBirthDate,
+		createdAt: time.Now(),
+	}
 
 	//do something with the collected data
-	fmt.Printf("First Name: %s\nLast Name: %s\nBirth Date: %s\n", firstName, lastName, birthDate)
+	outputUserDetails(appUser)
+}
+
+func outputUserDetails(u user) {
+	fmt.Printf("First Name: %s\nLast Name: %s\nBirth Date: %s\n", u.firstName, u.lastName, u.birthDate)
 }
 
 func getUserdata(promptText string) string {
-	var input string
 	fmt.Print(promptText)
-	fmt.Scanln(&input)
+	var input string
+	fmt.Scan(&input)
 	return input
 }
