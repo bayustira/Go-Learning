@@ -26,10 +26,10 @@ func main() {
 	}
 
 	//do something with the collected data
-	outputUserDetails(appUser)
+	outputUserDetails(&appUser)
 }
 
-func outputUserDetails(u user) {
+func outputUserDetails(u *user) {
 	fmt.Printf("First Name: %s\nLast Name: %s\nBirth Date: %s\n", u.firstName, u.lastName, u.birthDate)
 }
 
