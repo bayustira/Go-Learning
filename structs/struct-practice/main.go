@@ -32,22 +32,29 @@ func main() {
 	}
 
 	todo.Display()
-	err = todo.Save()
+	err = saveData(todo)
 	if err != nil {
-		fmt.Println("Error saving todo:", err)
-	}	
-
-	fmt.Println("Saving the todo succeeded!")
+		return
+	}
 
 	
 	userNote.Display()
-	err = userNote.Save()
+	err = saveData(userNote)
 	if err != nil {
-		fmt.Println("Error saving note:", err)
-	}	
-
-	fmt.Println("Saving the note succeeded!")
+		return
+	}
 }
+
+func saveData(data saver) error {
+	err := data.Save()
+	if err != nil {
+		fmt.Println("Saving the note failed")
+		return err
+	}
+	fmt.Println("Saving the note succeeded!")
+	return nil
+}
+
 
 func getNoteData() (string, string) {
 	title := getUserInput("Note title:")
