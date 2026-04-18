@@ -47,14 +47,32 @@ func main() {
 }
 
 func printSomething(value any) {
-	switch value.(type) {
-	case int:
-		fmt.Println("Integer:", value)
-	case float64:
-		fmt.Println("Float:", value)
-	case string:
-		fmt.Println(value)
+	intValue, ok := value.(int)
+	if ok {
+		fmt.Println("Integer:", intValue)
+		return
 	}
+
+	floatValue, ok := value.(float64)
+	if ok {
+		fmt.Println("Float:", floatValue)
+		return
+	}
+
+	stringValue, ok := value.(string)
+	if ok {
+		fmt.Println("String:", stringValue)
+		return
+	}
+
+	// switch value.(type) {
+	// case int:
+	// 	fmt.Println("Integer:", value)
+	// case float64:
+	// 	fmt.Println("Float:", value)
+	// case string:
+	// 	fmt.Println(value)
+	// }
 }
 
 func outputData(data outputtable) error {
